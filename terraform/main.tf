@@ -17,4 +17,9 @@ resource "digitalocean_droplet" "vm-ganho-tf" {
   name = "vm-ganho-tf"
   region = "nyc3"
   size = "s-1vcpu-1gb"
+  ssh_keys = [data.digitalocean_ssh_key.ssh_local.id]
+}
+
+data "digitalocean_ssh_key" "ssh_local" {
+  name = "ganho-tf"
 }
