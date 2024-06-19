@@ -1,4 +1,4 @@
-### Informações do Docker:
+### Informações do Terraform:
 - ```terraform init``` Prepara seu diretório de trabalho para outros comandos;
 - ```terraform plan``` Checa se a configuração é válida;
 - ```terraform fmt``` Formata o estilo para o padrão;
