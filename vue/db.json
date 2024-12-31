@@ -1,0 +1,22 @@
+{
+    "assignments": [
+        { 
+            "name": "Dummy1", 
+            "complete": false, 
+            "id": 1, 
+            "tag": "math" 
+        },
+        { 
+            "name": "Dummy2", 
+            "complete": false, 
+            "id": 2, 
+            "tag": "math" 
+        },
+        { 
+            "name": "Dummy3", 
+            "complete": true, 
+            "id": 3, 
+            "tag": "science" 
+        }
+    ]
+}
