@@ -8,11 +8,20 @@ export default {
     },
 
     template: `
-        <section class="space-y-6">
-            <AssignmentList :assignments="filters.inProgress" title="In Progress"/>
-            <AssignmentList :assignments="filters.completed" title="Completed Assignments"/>
+        <section class="flex gap-8">
+            <AssignmentList :assignments="filters.inProgress" title="In Progress">
+                <AssignmentCreate @add="add"/>
+            </AssignmentList>
 
-            <AssignmentCreate @add="add"/>
+            <div v-show="showCompleted">
+                <AssignmentList
+                    v-if="showCompleted"
+                    :assignments="filters.completed" 
+                    title="Completed Assignments" 
+                    can-toogle
+                    @toogle="showCompleted = !showCompleted"
+                />
+            </div>
         </section>
     `,
 
@@ -23,6 +32,7 @@ export default {
                 // { name: 'Dummy2', complete: false, id: 2, tag: 'science' },
                 // { name: 'Dummy3', complete: true, id:3, tag: 'math' },
             ],
+            showCompleted: true
         }
     },
 

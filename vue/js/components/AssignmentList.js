@@ -8,11 +8,15 @@ export default {
     },
 
     template: `
-        <section v-show="assignments.length">
-            <h2 class="font-bold mb-2">
+        <section v-show="assignments.length" class="w-60">
+            <div class="flex justify-between items-start">
+                <h2 class="font-bold mb-2">
                 {{ title }}
                 <span>({{ assignments.length }})</span>
-             </h2>
+                </h2>
+
+                <button v-show="canToogle" @click="$emit('toogle')">&times;</button>
+            </div>
 
             <AssignmentTags
                 v-model:currentTag="currentTag"
@@ -25,12 +29,18 @@ export default {
                     :key="assignment.id" 
                     :assignment="assignment"/>
             </ul>
+
+            <slot></slot>
         </section>
     `,
 
     props: {
         assignments: Array,
         title: String,
+        canToogle: {
+            type: Boolean,
+            default: false
+        },
     },
 
     data() {
